@@ -11,8 +11,8 @@ class Test {
 
     loginUser() {   
         cy.wait(5000)
-        cy.get("[type='text']").type("lucas.cotulio@fcamara.com.br")
-        cy.get("[type='password']").type("041290Lucas*")
+        cy.get("[type='text']").type("digitaremail")
+        cy.get("[type='password']").type("digitarsenha")
 
         cy.get("[type='submit']").click()
     }
