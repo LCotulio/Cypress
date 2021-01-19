@@ -2,9 +2,7 @@
 const urlFCteam = "https://fcteam.fcamara.com.br/#/login";
 
 class Test {
-    /**
-     * Open the website
-     */
+    
     openSite() {
       cy.visit(urlFCteam);
     }
