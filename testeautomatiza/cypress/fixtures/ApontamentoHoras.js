@@ -33,21 +33,6 @@ class Test {
         cy.contains("Reescrita Union").click( {force: true} )
     }
 
-    inputHourMorning() {
-        //Inicio
-        cy.wait(3500)
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(1)')
-            .type('08')
-
-        //Fim
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(2)')
-        .type('12')
-
-        //Salvar Apontamento
-        cy.wait(2000)
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div.form-group.btns-modal-appointment > button.btn.btn-default.inverse.ng-binding').click()
-    }
-
     inputHour(hora1, hora2) {      
         //Inicio
         cy.wait(3500)
