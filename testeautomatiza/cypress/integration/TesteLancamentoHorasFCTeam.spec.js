@@ -13,7 +13,7 @@ describe("Quadro de horas FCTeam", () =>
     });
 
     it('Usuário e senha', () =>{ 
-        Test.loginUser();
+        Test.loginUser("lucas.cotulio@fcamara.com.br", "041290Lucas");
     });
         
     it('Novo Apontamento', () =>{ 
@@ -22,12 +22,12 @@ describe("Quadro de horas FCTeam", () =>
     
     it('Selecionar cliente', function()
     {  
-        Test.selectClient();
+        Test.selectClient("Unimed Do Brasil");
     });
 
     it('Selecionar projeto', function()
     {  
-        Test.selectProject();
+        Test.selectProject("Reescrita Union");
     });
 
     it('Lançar Horas - MANHÃ', function()
