@@ -2,17 +2,15 @@
 const urlFCteam = "https://fcteam.fcamara.com.br/#/login";
 
 class Test {
-    /**
-     * Open the website
-     */
+    
     openSite() {
       cy.visit(urlFCteam);
     }
 
     loginUser() {   
         cy.wait(5000)
-        cy.get("[type='text']").type("lucas.cotulio@fcamara.com.br")
-        cy.get("[type='password']").type("041290Lucas*")
+        cy.get("[type='text']").type("digitaremail")
+        cy.get("[type='password']").type("digitarsenha")
 
         cy.get("[type='submit']").click()
     }
