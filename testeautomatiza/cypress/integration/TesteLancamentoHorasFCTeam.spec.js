@@ -32,7 +32,7 @@ describe("Quadro de horas FCTeam", () =>
 
     it('Lançar Horas - MANHÃ', function()
     {  
-        Test.inputHourMorning();
+        Test.inputHour("08", "12");
     });
         
     it('Novo Apontamento', () =>{ 
@@ -41,7 +41,7 @@ describe("Quadro de horas FCTeam", () =>
     
     it('Lançar Horas - TARDE', function()
     {  
-        Test.inputHourAfternoon();
+        Test.inputHour("13", "17");
     }); 
 
 });

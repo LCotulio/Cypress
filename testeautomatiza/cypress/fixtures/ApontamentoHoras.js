@@ -50,19 +50,18 @@ class Test {
         cy.get('#tabNormal > form > div > div.form.ng-scope > div.form-group.btns-modal-appointment > button.btn.btn-default.inverse.ng-binding').click()
     }
 
-    inputHourAfternoon() {
-        
+    inputHour(hora1, hora2) {      
         //Inicio
         cy.wait(3500)
         cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(1)')
-            .type('13')
+            .type(hora1)
 
         //Fim
         cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(2)')
-        .type('17')
+        .type(hora2)
 
         //Salvar Apontamento
-        cy.wait(2000)
+        cy.wait(3000)
         cy.get('#tabNormal > form > div > div.form.ng-scope > div.form-group.btns-modal-appointment > button.btn.btn-default.inverse.ng-binding').click()
     }
 }
