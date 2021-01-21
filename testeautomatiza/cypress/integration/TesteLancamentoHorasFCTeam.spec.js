@@ -13,7 +13,7 @@ describe("Quadro de horas FCTeam", () =>
     });
 
     it('Usuário e senha', () =>{ 
-        Test.loginUser("lucas.cotulio@fcamara.com.br", "041290Lucas");
+        Test.loginUser("passar email", "passar senha");
     });
         
     it('Novo Apontamento', () =>{ 
