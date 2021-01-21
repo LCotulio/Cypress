@@ -1,5 +1,10 @@
 /// <reference types="cypress"/>
-const urlFCteam = "https://fcteam.fcamara.com.br/#/login";
+
+const urlFCteam     = "https://fcteam.fcamara.com.br/#/login";
+const newNote       = "#header > nav > div.navbar-right > ul > li.ng-scope > button";
+const saveNote      = "#tabNormal > form > div > div.form.ng-scope > div.form-group.btns-modal-appointment > button.btn.btn-default.inverse.ng-binding";
+const clickClient   = "#tabNormal > form > div > div.form.ng-scope > div:nth-child(1) > div > div > div > a > span.select2-arrow.ui-select-toggle";
+const clickProject  = "#tabNormal > form > div > div.form.ng-scope > div:nth-child(2) > div > div > div > a > span.select2-arrow.ui-select-toggle";
 
 class Test {
     
@@ -15,37 +20,38 @@ class Test {
         cy.get("[type='submit']").click()
     }
 
-    apointment() {  
-        cy.wait(5000)
-        cy.get('#header > nav > div.navbar-right > ul > li.ng-scope > button').click()
+    note() {  
+        cy.wait(2500)
+        cy.get(newNote).click()
     }
 
     selectClient(cliente) {
         
-        cy.get("#tabNormal > form > div > div.form.ng-scope > div:nth-child(1) > div > div > div > a > span.select2-arrow.ui-select-toggle").click()
-        cy.wait(3000)
+        cy.get(clickClient).click()
+        cy.wait(1000)
         cy.contains(cliente).click()
     }
 
     selectProject (projeto) {
         cy.wait(2000)
-        cy.get("#tabNormal > form > div > div.form.ng-scope > div:nth-child(2) > div > div > div > a > span.select2-arrow.ui-select-toggle").click()
+        cy.get(clickProject).click()
         cy.contains(projeto).click( {force: true} )
     }
 
-    inputHour(hora1, hora2) {      
+    inputHour(selectField, hora1) {      
         //Inicio
-        cy.wait(3000)
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(1)')
-            .type(hora1)
+        cy.wait(1000)
+        cy.get(selectField).type(hora1)    
+    }
 
-        //Fim
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(2)')
-        .type(hora2)
-
+    saveNote(){
         //Salvar Apontamento
         cy.wait(1000)
-        cy.get('#tabNormal > form > div > div.form.ng-scope > div.form-group.btns-modal-appointment > button.btn.btn-default.inverse.ng-binding').click()
+        cy.get(saveNote).click()
+    }
+
+    selectFieldHour(selectField){
+        return `#tabNormal > form > div > div.form.ng-scope > div:nth-child(6) > div:nth-child(2) > div > input:nth-child(${selectField})`;
     }
 }
 

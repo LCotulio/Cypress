@@ -13,11 +13,11 @@ describe("Quadro de horas FCTeam", () =>
     });
 
     it('Usuário e senha', () =>{ 
-        Test.loginUser("insere email", "insere senha");
+        Test.loginUser("lucas.cotulio@fcamara.com.br", "041290Lucas");
     });
         
     it('Novo Apontamento', () =>{ 
-        Test.apointment();
+        Test.note();
     });
     
     it('Selecionar cliente', function()
@@ -32,16 +32,23 @@ describe("Quadro de horas FCTeam", () =>
 
     it('Lançar Horas - MANHÃ', function()
     {  
-        Test.inputHour("08", "12");
+        //Salvar apontamento
+        Test.inputHour(Test.selectFieldHour("1") ,"08:00");
+        Test.inputHour(Test.selectFieldHour("2") ,"12:00");
+        //Salvar apontamento
+        Test.saveNote();
     });
         
     it('Novo Apontamento', () =>{ 
-        Test.apointment();
+        Test.note();
     });
-    
+
     it('Lançar Horas - TARDE', function()
     {  
-        Test.inputHour("13", "17");
-    }); 
-
+        //Salvar apontamento
+        Test.inputHour(Test.selectFieldHour("1") ,"13:00");
+        Test.inputHour(Test.selectFieldHour("2") ,"17:00");
+        //Salvar apontamento
+        Test.saveNote(); 
+    });
 });
