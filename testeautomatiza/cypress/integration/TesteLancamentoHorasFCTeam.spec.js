@@ -1,4 +1,6 @@
-import Test from "../fixtures/ApontamentoHoras.js";
+import Login from "../support/pages/login/index";
+import Test from "../fixtures/ApontamentoHoras.js"
+//import Apointment from "../support/pages/apontamento/index";
 
 /*
 * TESTE LANÇAMENTO DE HORAS NO FCTEAM - FCamara
@@ -8,34 +10,33 @@ import Test from "../fixtures/ApontamentoHoras.js";
 
 describe("Quadro de horas FCTeam", () => 
 {
-    it('Abrir site', () =>{ 
-        Test.openSite(); 
+    it.only('Abrir site', () =>{ 
+        Login.openSite();
     });
 
-    it('Usuário e senha', () =>{ 
-        Test.loginUser("passar email", "passar senha");
+    it.only('Usuário e senha', () =>{ 
+        Login.loginUser();
     });
         
-    it('Novo Apontamento', () =>{ 
-        Test.note();
+    it.only('Novo Apontamento / Cliente / Projeto', () =>{ 
+        Test.newApointment();
     });
     
-    it('Selecionar cliente', function()
+    it.only('Selecionar cliente', function()
     {  
-        Test.selectClient("Unimed Do Brasil");
+        Test.selectClient("Unimed Do Brasil")
     });
 
-    it('Selecionar projeto', function()
+    it.only('Selecionar projeto', function()
     {  
         Test.selectProject("Reescrita Union");
     });
 
     it('Lançar Horas - MANHÃ', function()
     {  
-        //Salvar apontamento
         Test.inputHour(Test.selectFieldHour("1") ,"08:00");
         Test.inputHour(Test.selectFieldHour("2") ,"12:00");
-        //Salvar apontamento
+        
         Test.saveNote();
     });
         
@@ -45,10 +46,16 @@ describe("Quadro de horas FCTeam", () =>
 
     it('Lançar Horas - TARDE', function()
     {  
-        //Salvar apontamento
         Test.inputHour(Test.selectFieldHour("1") ,"13:00");
         Test.inputHour(Test.selectFieldHour("2") ,"17:00");
-        //Salvar apontamento
+       
         Test.saveNote(); 
     });
+
+    it('Verifica se inseriu a linha 2', function()
+    {  
+        Test.lenghtRow("2");
+    });
+
+
 });
